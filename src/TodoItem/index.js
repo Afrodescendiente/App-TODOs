@@ -3,15 +3,7 @@ import './TodoItem.css'
 import {IoIosCheckmarkCircle, IoIosCloseCircle} from 'react-icons/io'
 
 function TodoItem (props){
-/* //se crean las funciones del alert
-   /*  const onComplete = () => {
-        alert('Se completó el todo ' + props.text);
-    }; */
 
-    /* const onDelete = () => {
-        alert('Borraste el todo ' + props.text);
-    };
-  */
 
     return(
         <li className="TodoItem">
@@ -28,7 +20,7 @@ function TodoItem (props){
             >{props.text}
             </p>
 
-            <span className="Icon Icon -delete"
+            <span className="Icon Icon-delete"
             onClick={props.onDelete}//PASANDO LA props LLAMO EL MéTODO DE App, onDelete.PARA ELIMINAR ESA 
             >
                 <IoIosCloseCircle/>

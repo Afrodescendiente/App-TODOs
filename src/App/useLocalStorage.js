@@ -5,27 +5,25 @@ function useLocalStorage(itemName, initialValue) {
 
     const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
-    //TENGO MI ESTADO INICIAL GUARDADO QUE ES UN ARRAY VACÍO O UN STRING VACÍO ...
-    //Y UN MÉTODO PARA ACTUALIZARLO.LLAMO A REACT
     const [item, setItem] = React.useState(initialValue);
   
-        React.useEffect(() => {
+    React.useEffect(() => {
   
-          setTimeout(() => {
-            try {
+      setTimeout(() => {
+        try {
               //ME TARIGO ALGUN ARGUMENTO, EL QUE NOS ENVÍEN POR PARÁMETRO.
-            const localStorageItem = localStorage.getItem(itemName);
-            let parsedItem;
+          const localStorageItem = localStorage.getItem(itemName);
+          let parsedItem;
         
               // VERIFICO SI YA EXISTE, LO PARCEO Y SINO CREAR UN ARRAY VACÍO.
-            if (!localStorageItem) {
-              localStorage.setItem(itemName, JSON.stringify(initialValue));
-              parsedItem = initialValue;
+          if (!localStorageItem) {
+            localStorage.setItem(itemName, JSON.stringify(initialValue));
+            parsedItem = initialValue;
           } else {
-              parsedItem = JSON.parse(localStorageItem);
+            parsedItem = JSON.parse(localStorageItem);
           }
-          setItem(parsedItem);//ACTUALIZA EL VALOR DEL useLocalStorage
-          setLoading(false);
+            setItem(parsedItem);//ACTUALIZA EL VALOR DEL useLocalStorage
+            setLoading(false);
   
             } catch (error) {
               setError(error);

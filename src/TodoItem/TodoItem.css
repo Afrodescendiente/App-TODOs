@@ -11,11 +11,11 @@
   }
   
   .TodoItem-p {
-    margin: 24px 0 24px 24px;
-    width: calc(100% - 120px);
+    margin: 20px 0 24px 15px;
+    width: calc(95% - 120px);
     font-size: 18px;
     line-height: 24px;
-    font-weight: 400;
+    font-weight: 500;
   }
   .TodoItem-p--complete {
     text-decoration: line-through;
@@ -30,7 +30,6 @@
     width: 48px;
     font-size: 24px;
     font-weight: bold;
-    /* background-color: #CCC; */
   }
   
   .Icon-check {
@@ -43,7 +42,14 @@
   
   .Icon-delete {
     position: absolute;
-    top: -24px;
-    right: 0;
+    top: 10px;
+    right: 12px;
+   
   }
+  .Icon-delete:hover{
+    color: rgb(255, 3, 3);
+
+
+  }
+  
   

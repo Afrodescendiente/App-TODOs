@@ -1,11 +1,9 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-const TodoContext = React.createContext();
 
 
-//FUNCIÓN PARA CONECTAR TodoContext.Provider CON TodoContext.Consumer
-function TodoProvider(props){
+function useTodos(){
     const {
         item:todos,
         saveItem: saveTodos,
@@ -15,6 +13,7 @@ function TodoProvider(props){
       } = useLocalStorage('TODOS_V1', []);
       const [searchValue, setSearchValue] = React.useState('');
       const [openModal, setOpenModal] = React.useState(false);
+      
       const completedTodos = todos.filter(todo => !!todo.completed).length;
       const totalTodos = todos.length;
     
@@ -56,12 +55,7 @@ function TodoProvider(props){
         saveTodos(newTodos);
       };
 
-
-
-
-    //AQUI ENVOLVER TODA LA App.js
-    return(
-        <TodoContext.Provider value={{
+    return{
             loading,
             error,
             totalTodos,
@@ -75,12 +69,12 @@ function TodoProvider(props){
             openModal,
             setOpenModal,
 
-        }}>
-            {props.children}
-        </TodoContext.Provider>
-    )
-}
+        };
+      }
+            
+    
 
 
-export {TodoContext, TodoProvider};
+
+export {useTodos};
 

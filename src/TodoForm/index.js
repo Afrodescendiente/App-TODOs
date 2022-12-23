@@ -1,20 +1,15 @@
 import React from 'react';
-import { TodoContext } from '../TodoContext';
 import'./TodoForm.css'
 import {IoMdCloseCircleOutline, IoMdCheckmarkCircleOutline} from 'react-icons/io'
 
 
-function TodoForm (){
+function TodoForm ({addTodo, setOpenModal}){
 
     const [newTodoValue, setNewTodoValue] = React.useState('');
-
-    const {addTodo, setOpenModal} = React.useContext(TodoContext)
-
 
     const onChange =(event) =>  {
         setNewTodoValue(event.target.value);
         };
-
 
     const onCancel =() =>  {
         setOpenModal(false);
@@ -25,7 +20,6 @@ function TodoForm (){
         addTodo(newTodoValue);
         setOpenModal(false);
     }
-
 
     return(
         <form onSubmit={onSubmit}>
