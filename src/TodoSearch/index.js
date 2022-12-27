@@ -12,7 +12,7 @@ function TodoSearch ({searchValue, setSearchValue, loading}){
 
     return(// SI ENCIERRO EN UN ARRAY, REACT PUEDE RENDERIZAR EL COMPONENTE COMPLETO.
         <input 
-            className=" TodoSearch"
+            className="TodoSearch"
             placeholder="buscar tareas..."
             value={searchValue}
             onChange={onSearchValueChange}//CAMBIA EL ESTADO.

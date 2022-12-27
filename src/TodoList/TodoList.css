@@ -6,3 +6,6 @@ ul{
 .TodoList-container{
    margin: 0 50px;
 }
+.TodoList-container:disabled{
+   opacity: 25%;
+}

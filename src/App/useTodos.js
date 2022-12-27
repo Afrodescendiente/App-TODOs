@@ -7,6 +7,7 @@ function useTodos(){
     const {
         item:todos,
         saveItem: saveTodos,
+        sincronizeItem: sincronizeTodos,
         loading,
         error,
     
@@ -35,7 +36,6 @@ function useTodos(){
           completed:false,
           text,
         })
-        // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
         saveTodos(newTodos);
       };
     
@@ -68,7 +68,7 @@ function useTodos(){
             deleteTodo,
             openModal,
             setOpenModal,
-
+            sincronizeTodos,
         };
       }
             

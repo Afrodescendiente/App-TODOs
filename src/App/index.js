@@ -12,6 +12,7 @@ import { EmptyTodos } from "../EmptyTodos";
 import { TodoForm } from "../TodoForm";
 import { CreateTodoButton } from "../CreateTodoButton";
 import {Modal} from "../Modal";
+import {ChangeAlert} from "../ChangeAlert";
 
 
 
@@ -29,6 +30,7 @@ function App() {
     searchValue,
     setSearchValue,
     addTodo,
+    sincronizeTodos,
   }= useTodos();
   
 
@@ -59,18 +61,18 @@ function App() {
           onEmptySearchResults={
             (searchText) => <p className="Mensaje-error">No hay resultados para {searchText}</p>}
             
-          render={todo =>(//PROPIEDAD RENDER
-            <TodoItem
-              key={todo.text}
-              text={todo.text}
-              completed={todo.completed}
-              onComplete={() => completeTodo(todo.text)}
-              onDelete={() => deleteTodo(todo.text)}
-          />
-          )}
+          // render={todo =>(//PROPIEDAD RENDER
+          //   <TodoItem
+          //     key={todo.text}
+          //     text={todo.text}
+          //     completed={todo.completed}
+          //     onComplete={() => completeTodo(todo.text)}
+          //     onDelete={() => deleteTodo(todo.text)}
+          // />
+          // )}
 
         >
-          {/* {todo =>(//PROPIEDAD CHILDREN
+          {todo =>(//PROPIEDAD CHILDREN
             <TodoItem
               key={todo.text}
               text={todo.text}
@@ -78,7 +80,7 @@ function App() {
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
           />
-          )}  */}
+          )} 
         </TodoList>
        
            {!!openModal && (
@@ -91,6 +93,9 @@ function App() {
            )}   
         <CreateTodoButton 
         setOpenModal ={setOpenModal}
+        />
+        <ChangeAlert
+          sincronize ={sincronizeTodos}
         />
     </React.Fragment>
 

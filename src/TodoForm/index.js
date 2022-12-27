@@ -23,7 +23,7 @@ function TodoForm ({addTodo, setOpenModal}){
 
     return(
         <form onSubmit={onSubmit}>
-            <label>Escribe tu nueva tarea!</label>
+            <label>¡Escribe tu nueva tarea!</label>
             <textarea
                 value={newTodoValue}
                 onChange ={onChange}
@@ -45,7 +45,6 @@ function TodoForm ({addTodo, setOpenModal}){
               >
                 <IoMdCheckmarkCircleOutline/>
               </button>
-
             </div>
         </form>
     );
