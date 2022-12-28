@@ -15,24 +15,31 @@ import {Modal} from "../Modal";
 import {ChangeAlert} from "../ChangeAlert";
 
 
-
+//App LLAMA A ESTAS PROPIEDADES DENTRO DE useTodos QUE SE VAN REPARTIENDO POR TODOS LOS COMPONENTES,GRACIAS A LA GRAN COMPOSICIÓN
 function App() {
+  const {
+    states,
+    stateUpdaters,
+  }= useTodos();
+  
   const {
     error,
     loading,
     searchedTodos,
+    totalTodos,
     completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
-    totalTodos, 
     completedTodos,
     searchValue,
-    setSearchValue,
+    openModal,
+  } =states;
+
+  const {
+    setOpenModal,
     addTodo,
+    deleteTodo,
+    setSearchValue,
     sincronizeTodos,
-  }= useTodos();
-  
+  }= stateUpdaters;
 
   return(
         

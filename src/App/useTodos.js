@@ -2,7 +2,7 @@ import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 
-
+//CUSTOM HOOKS useTodos
 function useTodos(){
     const {
         item:todos,
@@ -10,16 +10,17 @@ function useTodos(){
         sincronizeItem: sincronizeTodos,
         loading,
         error,
-    
+    //---------ESTADOS DERIVADOS--------------
       } = useLocalStorage('TODOS_V1', []);
       const [searchValue, setSearchValue] = React.useState('');
       const [openModal, setOpenModal] = React.useState(false);
-      
+
+    //---------ESTADOS DERIVADOS--------------
       const completedTodos = todos.filter(todo => !!todo.completed).length;
       const totalTodos = todos.length;
     
       let searchedTodos = [];
-    
+    //---------ESTADO DERIVADO COMPLEJO-------
       if (!searchValue.length >= 1) {
         searchedTodos = todos;
       } else {
@@ -29,7 +30,7 @@ function useTodos(){
           return todoText.includes(searchText);
         });
       }
-      
+    //----------ACTUALIZADORES------------------
       const addTodo = (text) => {
         const newTodos = [...todos];
         newTodos.push({
@@ -55,21 +56,26 @@ function useTodos(){
         saveTodos(newTodos);
       };
 
-    return{
-            loading,
-            error,
-            totalTodos,
-            completedTodos,
-            searchValue,
-            setSearchValue,
-            searchedTodos,
-            addTodo,
-            completeTodo,
-            deleteTodo,
-            openModal,
-            setOpenModal,
-            sincronizeTodos,
+
+      const states = {
+        error,
+        loading,
+        searchedTodos,
+        totalTodos,
+        completeTodo,
+        completedTodos,
+        searchValue,
+        openModal,
+      };
+
+      const stateUpdaters={
+        setOpenModal,
+        addTodo,
+        deleteTodo,
+        setSearchValue,
+        sincronizeTodos,
         };
+        return {states, stateUpdaters};
       }
             
     

@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import {App} from './App';
 import './index.css';
 
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root')
+); 
+
 // function App(props){
 //   return(
 //     <h1>¡{props.saludo},{props.nombre}!</h1>
@@ -45,12 +51,6 @@ import './index.css';
 
 
 
-
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root')
-); 
 
 
 
