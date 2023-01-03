@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import { newId } from '../helpers/idGenerator';
 
 
 //CUSTOM HOOKS useTodos
@@ -11,9 +12,9 @@ function useTodos(){
         loading,
         error,
     //---------ESTADOS DERIVADOS--------------
-      } = useLocalStorage('TODOS_V1', []);
+      } = useLocalStorage('TODOS_V2', []);
       const [searchValue, setSearchValue] = React.useState('');
-      const [openModal, setOpenModal] = React.useState(false);
+     
 
     //---------ESTADOS DERIVADOS--------------
       const completedTodos = todos.filter(todo => !!todo.completed).length;
@@ -31,52 +32,62 @@ function useTodos(){
         });
       }
     //----------ACTUALIZADORES------------------
-      const addTodo = (text) => {
+    const addTodo = (text) => {
+    const idList = todos.map(todo => todo.id);
+    let id = newId(idList);
+    const newTodos = [...todos];
+    newTodos.push({
+      completed: false,
+      text,
+      id,
+    });
+    saveTodos(newTodos);
+  };
+    
+      const completeTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
-        newTodos.push({
-          completed:false,
-          text,
-        })
+        newTodos[todoIndex].completed = true; 
+        saveTodos(newTodos);
+      };
+
+      const editTodo = (id, newText) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
+        const newTodos = [...todos];
+        newTodos[todoIndex].text = newText;
         saveTodos(newTodos);
       };
     
-      const completeTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
-        const newTodos = [...todos];
-        newTodos[todoIndex].completed = true;
-        // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
-        saveTodos(newTodos);
-      };
-    
-      const deleteTodo = (text) => {
-        const todoIndex = todos.findIndex(todo => todo.text === text);
+      const deleteTodo = (id) => {
+        const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
         newTodos.splice(todoIndex, 1);
-        // Cada que el usuario interactúe con nuestra aplicación se guardarán los TODOs con nuestra nueva función
+        
         saveTodos(newTodos);
       };
 
 
-      const states = {
-        error,
+      const state = {
         loading,
-        searchedTodos,
+        error,
         totalTodos,
-        completeTodo,
         completedTodos,
         searchValue,
-        openModal,
+        searchedTodos,
       };
 
-      const stateUpdaters={
-        setOpenModal,
-        addTodo,
-        deleteTodo,
+      const stateUpdaters = {
         setSearchValue,
+        addTodo,
+        completeTodo,
+        deleteTodo,
+        editTodo,
         sincronizeTodos,
-        };
-        return {states, stateUpdaters};
+      };
+        return {state, stateUpdaters};
       }
+
+      
             
     
 

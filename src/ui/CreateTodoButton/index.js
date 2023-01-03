@@ -4,15 +4,10 @@ import {IoIosAddCircle } from 'react-icons/io'
 
 
 function CreateTodoButton (props){
-
-    const onClickButton= () =>{//esta es la funcion que envuelve el evento para esperar el clic del usuario. No se genere clic sin hacerlo
-        props.setOpenModal(prevState => !prevState);
-    }; 
-
     return(
         <button 
             className="CreateTodoButton"
-            onClick={onClickButton}
+            onClick={props.onClick}
         >
             <IoIosAddCircle/>
         </button>

@@ -20,6 +20,8 @@
   .TodoItem-p--complete {
     text-decoration: line-through;
   }
+
+
   
   .Icon {
     cursor: pointer;
@@ -39,6 +41,10 @@
   .Icon-check--active {
     color: #a2f010;
   }
+  .Icon-check:hover {
+    color: #658033;
+  }
+  
   
   .Icon-delete {
     position: absolute;
@@ -51,5 +57,17 @@
 
 
   }
-  
+  .TodoItem-edit{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .TodoItem-edit:hover{
+    color: rgb(14, 105, 223);
+  }
   
