@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/demo-todo/static/css/main.ca636f36.css",
-    "main.js": "/demo-todo/static/js/main.5e400e4b.js",
-    "static/media/wallhaven-dgp7ym.jpg": "/demo-todo/static/media/wallhaven-dgp7ym.1fa82df32ec62616184c.jpg",
-    "index.html": "/demo-todo/index.html",
-    "main.ca636f36.css.map": "/demo-todo/static/css/main.ca636f36.css.map",
-    "main.5e400e4b.js.map": "/demo-todo/static/js/main.5e400e4b.js.map"
+    "main.css": "/demo-platzi/static/css/main.699cd03e.css",
+    "main.js": "/demo-platzi/static/js/main.5e400e4b.js",
+    "static/media/wallhaven-dgp7ym.jpg": "/demo-platzi/static/media/wallhaven-dgp7ym.1fa82df32ec62616184c.jpg",
+    "index.html": "/demo-platzi/index.html",
+    "main.699cd03e.css.map": "/demo-platzi/static/css/main.699cd03e.css.map",
+    "main.5e400e4b.js.map": "/demo-platzi/static/js/main.5e400e4b.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca636f36.css",
+    "static/css/main.699cd03e.css",
     "static/js/main.5e400e4b.js"
   ]
 }
