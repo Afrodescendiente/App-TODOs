@@ -10,7 +10,7 @@ function ChangeAlert({sincronize}) {
   const {show, toggleShow} = useStorageListener(sincronize);
   if (show) {
     return (
-      <div className="ChangeAlert-bg" >
+      // <div className="ChangeAlert-bg" >
         <div className="ChangeAlert-container">
         <p>¡Parece que modificaste tus tareas!</p>
         <p> ¿Quieres sincronizar? </p>
@@ -22,7 +22,7 @@ function ChangeAlert({sincronize}) {
             <IoMdRefreshCircle />
           </button>
       </div>
-      </div>
+      // </div>
     );
   } else {
     return null;

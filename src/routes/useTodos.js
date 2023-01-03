@@ -32,18 +32,27 @@ function useTodos(){
         });
       }
     //----------ACTUALIZADORES------------------
-    const addTodo = (text) => {
-    const idList = todos.map(todo => todo.id);
-    let id = newId(idList);
-    const newTodos = [...todos];
-    newTodos.push({
-      completed: false,
-      text,
-      id,
-    });
-    saveTodos(newTodos);
-  };
+     
+
+      const addTodo = (text) => {
+      const idList = todos.map(todo => todo.id);
+      let id = newId(idList);
+      const newTodos = [...todos];
+      newTodos.push({
+        completed: false,
+        text,
+        id,
+      });
+      saveTodos(newTodos);
+    };
     
+    const getTodo = (id) => {
+      const todoIndex = todos.findIndex(todo => todo.id === id);
+      return todos[todoIndex];
+    }
+
+
+
       const completeTodo = (id) => {
         const todoIndex = todos.findIndex(todo => todo.id === id);
         const newTodos = [...todos];
@@ -74,6 +83,7 @@ function useTodos(){
         completedTodos,
         searchValue,
         searchedTodos,
+        getTodo,
       };
 
       const stateUpdaters = {

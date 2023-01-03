@@ -9,8 +9,8 @@ function NewTodoPage (){
  
     return (
         <TodoForm
-         label='Escribe '
-         submitText='añade'
+         label='Escribe una tarea'
+        //  submitText='añade'
          submitEvent={(text) => addTodo(text)}
             />
     );
