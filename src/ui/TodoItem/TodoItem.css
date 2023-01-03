@@ -20,9 +20,6 @@
   .TodoItem-p--complete {
     text-decoration: line-through;
   }
-
-
-  
   .Icon {
     cursor: pointer;
     display: flex;
@@ -45,7 +42,6 @@
     color: #658033;
   }
   
-  
   .Icon-delete {
     position: absolute;
     top: 10px;
@@ -54,9 +50,7 @@
   }
   .Icon-delete:hover{
     color: rgb(255, 3, 3);
-
-
-  }
+ }
   .TodoItem-edit{
     cursor: pointer;
     display: flex;
